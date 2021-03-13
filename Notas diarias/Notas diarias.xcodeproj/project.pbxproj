@@ -17,6 +17,7 @@
 		D41D87BD25FD79AE00856933 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D87BC25FD79AE00856933 /* NoteTableViewController.swift */; };
 		D41D87C325FD7A0500856933 /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D87C225FD7A0500856933 /* NoteModel.swift */; };
 		D41D87C925FD7CE200856933 /* NoteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41D87C825FD7CE200856933 /* NoteRepository.swift */; };
+		D4D9A92325FD87100097612B /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4D9A92225FD87100097612B /* AlertHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D41D87BC25FD79AE00856933 /* NoteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		D41D87C225FD7A0500856933 /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
 		D41D87C825FD7CE200856933 /* NoteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRepository.swift; sourceTree = "<group>"; };
+		D4D9A92225FD87100097612B /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		D41D87A225FD6C5500856933 /* Notas diarias */ = {
 			isa = PBXGroup;
 			children = (
+				D4D9A92125FD87000097612B /* util */,
 				D41D87C725FD7CD300856933 /* repository */,
 				D41D87C125FD79FB00856933 /* model */,
 				D41D87BB25FD799000856933 /* controller */,
@@ -101,6 +104,14 @@
 				D41D87C825FD7CE200856933 /* NoteRepository.swift */,
 			);
 			path = repository;
+			sourceTree = "<group>";
+		};
+		D4D9A92125FD87000097612B /* util */ = {
+			isa = PBXGroup;
+			children = (
+				D4D9A92225FD87100097612B /* AlertHelper.swift */,
+			);
+			path = util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +188,7 @@
 				D41D87C325FD7A0500856933 /* NoteModel.swift in Sources */,
 				D41D87A425FD6C5500856933 /* AppDelegate.swift in Sources */,
 				D41D87C925FD7CE200856933 /* NoteRepository.swift in Sources */,
+				D4D9A92325FD87100097612B /* AlertHelper.swift in Sources */,
 				D41D87A625FD6C5500856933 /* SceneDelegate.swift in Sources */,
 				D41D87BD25FD79AE00856933 /* NoteTableViewController.swift in Sources */,
 				D41D87AE25FD6C5500856933 /* Notas_diarias.xcdatamodeld in Sources */,

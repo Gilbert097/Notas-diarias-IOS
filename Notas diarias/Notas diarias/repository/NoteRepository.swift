@@ -11,12 +11,12 @@ import CoreData
 private extension String {
     static let id = "id"
     static let text = "text"
-    static let createdDate = "createdDate"
-    static let modifiedDate = "modifiedDate"
+    static let createdDate = "created_date"
+    static let modifiedDate = "modified_date"
 }
 
 public class NoteRepository{
-    private let entityName = "NoteModel"
+    private let entityName = "Note"
     private let viewContext: NSManagedObjectContext
     
     init(viewContext: NSManagedObjectContext){
