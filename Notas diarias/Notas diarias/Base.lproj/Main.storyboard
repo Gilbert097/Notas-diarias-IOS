@@ -34,7 +34,7 @@
                     <navigationItem key="navigationItem" title="Notas Diárias" id="Mhc-fi-zXK">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="CXy-ZB-lyP">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="newNote" id="yHf-NH-7H2"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="noteDetail" id="yHf-NH-7H2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

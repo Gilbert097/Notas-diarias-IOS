@@ -35,22 +35,24 @@ public class NoteRepository{
         }
         return false
     }
-//
-//    public func update(userModel: NoteModel){
-//        do {
-//            let request = createRequestWithIdPredicate(userId: userModel.id)
-//            let usersEntity = try self.viewContext.fetch(request)
-//            if let list = usersEntity as? [NSManagedObject] {
-//                for userItem in list {
-//                    updateEntityByModel(userItem, userModel)
-//                    try self.viewContext.save()
-//                    print("Registro alterado com sucesso!")
-//                }
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
+
+    public func update(note: NoteModel) -> Bool{
+        do {
+            let request = createRequestWithIdPredicate(noteId: note.id)
+            let entitys = try self.viewContext.fetch(request)
+            if let list = entitys as? [NSManagedObject] {
+                for noteItem in list {
+                    updateEntityByModel(noteItem, note)
+                    try self.viewContext.save()
+                    print("Registro alterado com sucesso!")
+                    return true
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return false
+    }
 //
 //    public func delete(userModel: NoteModel){
 //        do {
@@ -68,15 +70,15 @@ public class NoteRepository{
 //        }
 //    }
 //
-//    private func createRequestWithIdPredicate(userId: String) -> NSFetchRequest<NSFetchRequestResult> {
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
-//
-//        let idPredicate = NSPredicate(format: "\(String.id) ==  %@", userId)
-//        request.predicate = idPredicate
-//
-//        return request
-//    }
-//
+    private func createRequestWithIdPredicate(noteId: String) -> NSFetchRequest<NSFetchRequestResult> {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
+
+        let idPredicate = NSPredicate(format: "\(String.id) ==  %@", noteId)
+        request.predicate = idPredicate
+
+        return request
+    }
+
     private func updateEntityByModel(_ noteEntity: NSManagedObject, _ note: NoteModel) {
         noteEntity.setValue(note.id, forKey: .id)
         noteEntity.setValue(note.text, forKey: .text)

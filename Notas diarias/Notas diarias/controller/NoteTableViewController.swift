@@ -34,7 +34,6 @@ class NoteTableViewController: UITableViewController {
     private func loadNotes() {
         self.notes = noteRepository.getAll() ?? []
         self.tableView.reloadData()
-
     }
 
     // MARK: - Table view data source
@@ -56,6 +55,18 @@ class NoteTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let currentNote = notes[indexPath.row]
+        tableView.deselectRow(at: indexPath, animated: true)
+        performSegue(withIdentifier: "noteDetail", sender: currentNote)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier, identifier == "noteDetail", let item = sender {
+            let  noteViewController  = segue.destination as! NoteViewController
+            noteViewController.noteSelected = item as? NoteModel
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.
