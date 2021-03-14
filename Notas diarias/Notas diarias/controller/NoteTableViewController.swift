@@ -67,6 +67,27 @@ class NoteTableViewController: UITableViewController {
             noteViewController.noteSelected = item as? NoteModel
         }
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            let currentNote = notes[indexPath.row]
+            if editingStyle == .delete {
+                deleteCell(currentNote)
+            }
+        }
+        private func deleteCell(_ currentNote: NoteModel) {
+            let message = "Deseja deletar a nota: \(currentNote.text)?"
+            let positiveHandler:((UIAlertAction) -> Void)? = { (action) in
+                let isSuccess = self.noteRepository.delete(note: currentNote)
+                if isSuccess {
+                    AlertHelper.shared.showMessage(viewController: self, message: "Nota deletada com sucesso!")
+                    self.loadNotes()
+                }else {
+                    AlertHelper.shared.showMessage(viewController: self, message: "Error ao deletar nota!")
+                }
+            }
+            AlertHelper.shared.showConfirmationMessage(viewController: self, message: message, positiveHandler: positiveHandler)
+        }
+
 
     /*
     // Override to support conditional editing of the table view.

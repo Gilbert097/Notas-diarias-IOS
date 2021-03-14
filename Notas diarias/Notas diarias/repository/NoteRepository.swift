@@ -36,7 +36,7 @@ public class NoteRepository{
         return false
     }
 
-    public func update(note: NoteModel) -> Bool{
+    public func update(note: NoteModel) -> Bool {
         do {
             let request = createRequestWithIdPredicate(noteId: note.id)
             let entitys = try self.viewContext.fetch(request)
@@ -53,23 +53,25 @@ public class NoteRepository{
         }
         return false
     }
-//
-//    public func delete(userModel: NoteModel){
-//        do {
-//            let request = createRequestWithIdPredicate(userId: userModel.id)
-//            let usersEntity = try self.viewContext.fetch(request)
-//            if let list = usersEntity as? [NSManagedObject] {
-//                for userItem in list {
-//                    self.viewContext.delete(userItem)
-//                    try self.viewContext.save()
-//                    print("Registro deletado com sucesso!")
-//                }
-//            }
-//        } catch {
-//            print(error.localizedDescription)
-//        }
-//    }
-//
+
+    public func delete(note: NoteModel) -> Bool {
+        do {
+            let request = createRequestWithIdPredicate(noteId: note.id)
+            let entitys = try self.viewContext.fetch(request)
+            if let list = entitys as? [NSManagedObject] {
+                for noteItem in list {
+                    self.viewContext.delete(noteItem)
+                    try self.viewContext.save()
+                    print("Registro deletado com sucesso!")
+                    return true
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+        return false
+    }
+
     private func createRequestWithIdPredicate(noteId: String) -> NSFetchRequest<NSFetchRequestResult> {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
 
