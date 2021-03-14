@@ -11,7 +11,7 @@ class NoteViewController: UIViewController {
     
     @IBOutlet weak var noteTextView: UITextView!
     
-    var noteRepository: NoteRepository = { () -> NoteRepository in
+    private let noteRepository: NoteRepository = { () -> NoteRepository in
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         return NoteRepository(viewContext: context)
@@ -19,15 +19,21 @@ class NoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Configurações iniciais
+        self.noteTextView.becomeFirstResponder()
     }
-
+    
     @IBAction func saveButtonItemClick(_ sender: UIBarButtonItem) {
         let text = noteTextView.text ?? ""
         let note = NoteModel(text: text, createdDate: Date())
         let isSuccess = noteRepository.save(note: note)
         
         if isSuccess {
-            AlertHelper.shared.showMessage(viewController: self, message: "Nota salva com sucesso!")
+            AlertHelper.shared.showMessage(viewController: self, message: "Nota salva com sucesso!") { _ in
+                //Retorna para a tela anterior
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         } else {
             AlertHelper.shared.showMessage(viewController: self, message: "Erro ao salvar nota!")
         }
