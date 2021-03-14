@@ -162,7 +162,7 @@ public class NoteRepository{
     private func createNoteByEntity(noteEntity: NSManagedObject)-> NoteModel {
         let id: String? = noteEntity.value(forKey: .id) as? String
         let text: String = noteEntity.value(forKey: .text) as? String ?? ""
-        let createdDate: Date? = noteEntity.value(forKey: .createdDate) as? Date
+        let createdDate: Date = noteEntity.value(forKey: .createdDate) as? Date ?? Date()
         let modifieldDate: Date? = noteEntity.value(forKey: .modifiedDate) as? Date
 
         return NoteModel(id: id, text: text, createdDate: createdDate, modifiedDate: modifieldDate)

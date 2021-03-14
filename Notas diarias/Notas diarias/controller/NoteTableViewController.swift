@@ -48,7 +48,7 @@ class NoteTableViewController: UITableViewController {
         let currentNote = notes[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
         cell.textLabel?.text = currentNote.text
-        
+        cell.detailTextLabel?.text = currentNote.getTextDates()
         //Ocultando linha de separação dos items
         //cell.separatorInset = UIEdgeInsets(top: CGFloat(0), left: cell.bounds.size.width, bottom: CGFloat(0), right: CGFloat(0));
         
