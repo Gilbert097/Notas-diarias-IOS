@@ -11,7 +11,7 @@ No desenvolvimento desse app foi possível aprender:
 
 Tela de apresentação:
 <p align="center">
-  <img src="https://github.com/Gilbert097/Notas-diarias-IOS/blob/master/SplashScreen.gif?raw=true" width="350" title="Imagem App">
+  <img src="https://github.com/Gilbert097/Notas-diarias-IOS/blob/master/SplashScreenNew.gif?raw=true" width="350" title="Imagem App">
 </p>
 
 Criar nova nota:
