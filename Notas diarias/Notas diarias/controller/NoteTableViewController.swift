@@ -19,6 +19,7 @@ class NoteTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.rowHeight = 125
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -46,9 +47,11 @@ class NoteTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let currentNote = notes[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath)
-        cell.textLabel?.text = currentNote.text
-        cell.detailTextLabel?.text = currentNote.getTextDates()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "noteCell", for: indexPath) as! NoteTableViewCell
+        cell.textNoteLabel?.text = currentNote.text
+        cell.createdDateLabel?.text = currentNote.getCreatedDateFormatted()
+        cell.modifiedDateLabel?.text = currentNote.getModifiedDateFormatted()
+
         //Ocultando linha de separação dos items
         //cell.separatorInset = UIEdgeInsets(top: CGFloat(0), left: cell.bounds.size.width, bottom: CGFloat(0), right: CGFloat(0));
         

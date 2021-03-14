@@ -23,27 +23,16 @@ public class NoteModel {
         self.createdDate = createdDate
         self.modifiedDate = modifiedDate
     }
-    
-    func getTextDates() -> String {
+        
+    public func getCreatedDateFormatted() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        let dateCreatedText = getCreatedDateFormatter(dateFormatter)
-        let dateModifiedText = getModifiedDateFormatter(dateFormatter)
-        
-        var result = "Created Date: \(dateCreatedText)"
-        
-        if let dateModified = dateModifiedText {
-            result.append(", Modified Date: \(dateModified)")
-        }
-        
-        return result
-    }
-    
-    private func getCreatedDateFormatter(_ dateFormatter: DateFormatter) -> String {
         return dateFormatter.string(from: self.createdDate)
     }
     
-    private func getModifiedDateFormatter(_ dateFormatter: DateFormatter) -> String? {
+    public func getModifiedDateFormatted() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
         if let dateModified = self.modifiedDate {
             return dateFormatter.string(from: dateModified)
         }
