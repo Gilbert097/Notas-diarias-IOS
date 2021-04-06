@@ -1,5 +1,5 @@
 # Notas-diarias-IOS
-Décimo terceiro app IOS do curso Desenvolvimento IOS 12 na Udemy, ministrado pelo professor Jamilton Damasceno. O objetivo do app é manipular uma lista de anotações.
+13º app IOS do curso Desenvolvimento IOS 12 na Udemy, ministrado pelo professor Jamilton Damasceno. O objetivo do app é manipular uma lista de anotações.
 
 No desenvolvimento desse app foi possível aprender:
 - Adicionar o framework CoreData.
